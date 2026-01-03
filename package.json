@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "test:integration": "vitest run --config vitest.integration.config.ts",
     "db:setup:test": "tsx scripts/setup-test-db.ts",
-    "benchmark": "tsx scripts/benchmark.ts"
+    "benchmark": "tsx scripts/benchmark.ts",
+    "server": "tsx src/server.ts"
   },
   "keywords": [
     "sql",
@@ -25,11 +26,13 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.3.1",
+    "express": "^5.2.1",
     "openai": "^4.28.0",
     "pg": "^8.11.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^20.11.0",
     "@types/pg": "^8.10.9",
     "tsx": "^4.7.0",

@@ -102,6 +102,30 @@ npm test
 
 ## Usage
 
+### HTTP API (curl)
+
+Start the API server:
+
+```bash
+npm run server
+```
+
+Send queries via POST:
+
+```bash
+curl -X POST http://localhost:3000/query \
+  -H "Content-Type: application/json" \
+  -d '{
+    "database": {
+      "connection": "postgres://user:pass@localhost:5432/mydb",
+      "allowed_tables": ["users", "subscriptions", "orders"]
+    },
+    "query": "Show me users who signed up last week and have Pro plan"
+  }'
+```
+
+### Programmatic Usage
+
 ### Basic Query
 
 ```typescript
