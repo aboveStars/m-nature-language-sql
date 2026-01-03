@@ -1,0 +1,39 @@
+{
+  "name": "natural-language-sql",
+  "version": "1.0.0",
+  "description": "AI-powered natural language to SQL query agent",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "db:setup:test": "tsx scripts/setup-test-db.ts",
+    "benchmark": "tsx scripts/benchmark.ts"
+  },
+  "keywords": [
+    "sql",
+    "natural-language",
+    "ai",
+    "postgresql",
+    "openai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^4.28.0",
+    "pg": "^8.11.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/pg": "^8.10.9",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
+  }
+}
