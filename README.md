@@ -71,7 +71,17 @@ You'll need an OpenAI API key with access to GPT-4. Get one at [platform.openai.
 npm install
 ```
 
-### 2. Configure Environment
+### 2. Setup Test Database (Optional)
+
+```bash
+# Create PostgreSQL database
+createdb nlsql_test
+
+# Setup sample tables and data
+npm run db:setup:test
+```
+
+### 3. Configure Environment
 
 ```bash
 cp .env.example .env
@@ -82,16 +92,6 @@ Edit `.env` with your credentials:
 ```env
 OPENAI_API_KEY=sk-your-api-key-here
 DATABASE_URL=postgres://user:password@localhost:5432/your_database
-```
-
-### 3. Setup Test Database (Optional)
-
-```bash
-# Create PostgreSQL database
-createdb nlsql_test
-
-# Setup sample tables and data
-npm run db:setup:test
 ```
 
 ### 4. Run Tests
