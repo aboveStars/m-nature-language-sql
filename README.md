@@ -29,6 +29,34 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 createdb nlsql_test
 ```
 
+### Finding Your Database URL
+
+The `DATABASE_URL` follows this format:
+
+```
+postgres://[username]:[password]@[host]:[port]/[database_name]
+```
+
+**For local PostgreSQL (macOS default):**
+
+```bash
+# Your username is typically your macOS username
+whoami  # Shows your username
+
+# Default local connection (no password required for local):
+# postgres://your_username@localhost:5432/nlsql_test
+```
+
+**Examples:**
+
+| Setup           | DATABASE_URL                                           |
+| --------------- | ------------------------------------------------------ |
+| Local (default) | `postgres://yunusmerve@localhost:5432/nlsql_test`      |
+| Local with pass | `postgres://user:mypassword@localhost:5432/nlsql_test` |
+| Remote server   | `postgres://admin:secret@db.example.com:5432/mydb`     |
+
+> **Tip**: If you installed PostgreSQL via Homebrew with default settings, you can connect without a password using your macOS username.
+
 ### OpenAI API Key
 
 You'll need an OpenAI API key with access to GPT-4. Get one at [platform.openai.com](https://platform.openai.com/api-keys).
