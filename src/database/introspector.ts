@@ -141,8 +141,11 @@ async function getRelationships(
   const params: string[] = [];
 
   if (allowedTables && allowedTables.length > 0) {
-    const placeholders = allowedTables.map((_, i) => `$${i + 1}`).join(", ");
-    tableFilter = `AND tc.table_name IN (${placeholders}) AND ccu.table_name IN (${placeholders})`;
+    const placeholders1 = allowedTables.map((_, i) => `$${i + 1}`).join(", ");
+    const placeholders2 = allowedTables
+      .map((_, i) => `$${i + 1 + allowedTables.length}`)
+      .join(", ");
+    tableFilter = `AND tc.table_name IN (${placeholders1}) AND ccu.table_name IN (${placeholders2})`;
     params.push(...allowedTables, ...allowedTables);
   }
 

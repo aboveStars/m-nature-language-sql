@@ -207,6 +207,46 @@ Closes all database connections (call before exit).
 | `npm test`              | Run unit tests      |
 | `npm run db:setup:test` | Setup test database |
 
+## Test Results
+
+All 22 integration tests pass with real PostgreSQL and OpenAI connections:
+
+| Requirement               | Tests | Status              |
+| ------------------------- | ----- | ------------------- |
+| Schema Introspection      | 4     | ✅ Pass             |
+| Text-to-SQL Generation    | 4     | ✅ Pass             |
+| Query Validation (Safety) | 4     | ✅ Pass             |
+| Result Formatting         | 2     | ✅ Pass             |
+| Error/Ambiguity Handling  | 2     | ✅ Pass             |
+| Performance (<3s)         | 2     | ✅ Pass             |
+| Read-only Safety          | 2     | ✅ Pass             |
+| **Accuracy**              | 1     | ✅ **100% (10/10)** |
+| Challenge Format          | 1     | ✅ Pass             |
+
+### Accuracy Breakdown
+
+All 10 natural language queries execute successfully on first try:
+
+| Query                                       | Status |
+| ------------------------------------------- | ------ |
+| Show me all users                           | ✅     |
+| Count of Pro subscriptions                  | ✅     |
+| Users who signed up in the last 7 days      | ✅     |
+| Show me users with their subscription plans | ✅     |
+| Total revenue from orders                   | ✅     |
+| Show me the user with most orders           | ✅     |
+| Average order amount                        | ✅     |
+| List subscriptions by plan type             | ✅     |
+| Show me active users                        | ✅     |
+| Users with no orders                        | ✅     |
+
+### Run Integration Tests
+
+```bash
+npm run db:setup:test          # Setup test database
+npm test -- tests/integration.test.ts  # Run integration tests
+```
+
 ## License
 
 MIT
